@@ -1,0 +1,1 @@
+# projekt_telemetria_JF_TTIR

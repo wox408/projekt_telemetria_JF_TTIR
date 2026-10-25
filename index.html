@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inteligentny licznik rowerowy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef3f5;
+    --ink: #14232b;
+    --muted: #51646e;
+    --line: #c9d6dc;
+    --accent: #0b6e8a;
+    --signal: #e8a100;
+    --panel: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1a20;
+      --ink: #e8f0f3;
+      --muted: #94a8b2;
+      --line: #263842;
+      --accent: #4fc0de;
+      --signal: #f2b92b;
+      --panel: #16252d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Barlow", system-ui, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+  h1 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 4.4rem);
+    line-height: 1;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 2.5rem 0 0.75rem;
+  }
+  p { margin: 0 0 1rem; max-width: 62ch; }
+  .lead { font-size: 1.2rem; color: var(--muted); }
+  .flow {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+    margin: 1rem 0 0; padding: 0; list-style: none;
+  }
+  .flow li {
+    background: var(--panel); border: 1px solid var(--line);
+    padding: 0.35rem 0.8rem; border-radius: 4px; font-weight: 500;
+  }
+  .flow li + li::before { content: ""; }
+  .arrow { color: var(--signal); font-weight: 700; }
+  ul.list { padding-left: 1.2rem; margin: 0; }
+  ul.list li { margin-bottom: 0.35rem; }
+  .status { border-left: 4px solid var(--signal); padding: 0.2rem 0 0.2rem 1rem; margin-top: 2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Inteligentny licznik rowerowy</h1>
+  <p class="lead">Telemetria z roweru w chmurze: prędkość, dystans, temperatura i wibracje trafiają z czujnika przez telefon do bazy, a model AI rozpoznaje nawierzchnię.</p>
+
+  <div class="status">
+    <strong>Projekt w trakcie realizacji.</strong> Czujniki nie są jeszcze podłączone, więc dane na stronie pojawią się później.
+  </div>
+
+  <h2>Jak to działa</h2>
+  <ul class="flow">
+    <li>Czujniki na rowerze</li>
+    <li class="arrow">&rarr;</li>
+    <li>ESP32</li>
+    <li class="arrow">&rarr;</li>
+    <li>Bluetooth</li>
+    <li class="arrow">&rarr;</li>
+    <li>Telefon</li>
+    <li class="arrow">&rarr;</li>
+    <li>Baza w internecie</li>
+    <li class="arrow">&rarr;</li>
+    <li>Dashboard i AI</li>
+  </ul>
+
+  <h2>Co będzie mierzone</h2>
+  <ul class="list">
+    <li>prędkość chwilowa, średnia i maksymalna oraz dystans sesji (czujnik Halla),</li>
+    <li>temperatura, wilgotność i ciśnienie powietrza (BME280),</li>
+    <li>przyspieszenia i wibracje (IMU),</li>
+    <li>stan baterii urządzenia,</li>
+    <li>trasa na mapie (GPS z telefonu).</li>
+  </ul>
+
+  <h2>Analiza AI</h2>
+  <p>Na podstawie wibracji model ma rozpoznawać rodzaj nawierzchni, na przykład asfalt, kostkę lub szuter. Po każdej sesji powstanie też krótki raport tekstowy.</p>
+
+  <h2>Etapy</h2>
+  <ul class="list">
+    <li>Prototyp sprzętu z ESP32 i czujnikami: planowany</li>
+    <li>Przesyłanie danych przez Bluetooth do telefonu: planowane</li>
+    <li>Baza danych i serwer w internecie: w trakcie</li>
+    <li>Dashboard z wykresami i mapą: planowany</li>
+    <li>Moduł AI: planowany</li>
+  </ul>
+
+  <footer>Autor: Twoje Imię i Nazwisko &middot; Promotor: Imię i Nazwisko &middot; Uczelnia, kierunek, rok</footer>
+</main>
+</body>
+</html>
